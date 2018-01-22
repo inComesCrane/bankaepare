@@ -1,13 +1,27 @@
 <header class="main-header">
 
     <a href="/" class="logo" >
-        {{--<img src="/images/icon-small.png">--}}
         <span style="cursor: pointer;">Banka e Parë</span>
     </a>
     <nav class="navbar">
-
         <a href="/"></a>
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
+
+        <div class="navbar-custom-menu" style="float: left;">
+            <ul class="nav navbar-nav">
+                @if (isset($currentFaculty))
+                    <li><a href="/faculties/{{ $currentFaculty->id }}"><span class="hidden-xs">{{ $currentFaculty->name }}</span></a></li>
+                @endif
+                @if (isset($currentDegree))
+                    <li><a href="javascript:void(0)"><span class="hidden-xs">></span></a></li>
+                    <li><a href="/degrees/{{ $currentDegree->id }}"><span class="hidden-xs">{{ $currentDegree->name }}</span></a></li>
+                @endif
+                @if (isset($currentSubject))
+                    <li><a href="javascript:void(0)"><span class="hidden-xs">></span></a></li>
+                    <li><a href="/subjects/{{ $currentSubject->id }}"><span class="hidden-xs">{{ $currentSubject->name }}</span></a></li>
+                @endif
+            </ul>
+        </div>
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
