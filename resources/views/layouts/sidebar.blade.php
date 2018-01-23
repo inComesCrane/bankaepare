@@ -1,4 +1,3 @@
-
 <aside class="main-sidebar" style="height: 100%;">
     <section class="sidebar" style="height: 100%;">
 
@@ -9,27 +8,34 @@
             </button>
           </span>
         </div>
+
         <div style="overflow: hidden; height: 100%; margin-right: 28px; position:relative; ">
             <div style="overflow-y:auto; height: 100%; position: absolute;">
-            @if((Request::is('subjects/*') || Request::is('exams/*')) && isset($subjects))
-                <ul class="sidebar-menu" data-widget="tree">
-                    @foreach($subjects as $subject)
-                        <li><a href="/subjects/{{ $subject->id }}"><span>{{ $subject->name }}</span></a></li>
-                    @endforeach
-                </ul>
-            @elseif(Request::is('degrees/*') && isset($degrees))
-                <ul class="sidebar-menu" data-widget="tree">
-                    @foreach($degrees as $degree)
-                        <li><a href="/degrees/{{ $degree->id }}"><span>{{ $degree->name }}</span></a></li>
-                    @endforeach
-                </ul>
-            @elseif(Request::is('faculties/*') || isset($faculties))
-                <ul class="sidebar-menu" data-widget="tree" id="sidebarElements">
-                    @foreach($faculties as $faculty)
-                        <li><a href="/faculties/{{ $faculty->id }}"><span>{{ $faculty->name }}</span></a></li>
-                    @endforeach
-                </ul>
-            @endif
+                @if((Request::is('subjects/*') || Request::is('exams/*')) && isset($subjects))
+                    <ul class="sidebar-menu" data-widget="tree" id="sidebarElements" style="overflow-y: scroll; height: 100%; width: 225px;">
+                        @foreach($subjects as $subject)
+                            <li><a href="/subjects/{{ $subject->id }}"><span>{{ $subject->name }}</span></a></li>
+                        @endforeach
+                    </ul>
+                @elseif(Request::is('degrees/*') && isset($degrees))
+                    <ul class="sidebar-menu" data-widget="tree" id="sidebarElements" style="overflow-y: scroll; height: 100%; width: 225px;">
+                        @foreach($degrees as $degree)
+                            <li><a href="/degrees/{{ $degree->id }}"><span>{{ $degree->name }}</span></a></li>
+                        @endforeach
+                    </ul>
+                @elseif(Request::is('faculties/*') || isset($faculties))
+                    <ul class="sidebar-menu" data-widget="tree" id="sidebarElements" style="overflow-y: scroll; height: 100%; width: 225px;">
+                        @foreach($faculties as $faculty)
+                            <li><a href="/faculties/{{ $faculty->id }}"><span>{{ $faculty->name }}</span></a></li>
+                        @endforeach
+                    </ul>
+                @elseif(Request::is('solutions/*') || isset($subjects))
+                    <ul class="sidebar-menu" data-widget="tree" id="sidebarElements" style="overflow-y: scroll; height: 100%; width: 225px;">
+                        @foreach($subjects as $subject)
+                            <li><a href="/subjects/{{ $subject->id }}"><span>{{ $subject->name }}</span></a></li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </section>
